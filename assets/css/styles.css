@@ -1,0 +1,257 @@
+/* =========================================================
+   دليل فعاليات الجامعة الافتراضية — ملف التنسيقات الرئيسي
+   الهوية اللونية: نيلي (أساسي) + برتقالي (ثانوي) + خلفية محايدة
+   الخط: Cairo من Google Fonts لأنه واضح ومناسب للعربية
+   ========================================================= */
+
+/* ---------- متغيرات الألوان (تسهّل تبديل الوضع الليلي) ---------- */
+:root {
+  --primary: #4f46e5;        /* اللون الأساسي */
+  --primary-dark: #3730a3;
+  --secondary: #f97316;      /* اللون الثانوي للتمييز */
+  --bg: #f6f7fb;             /* خلفية محايدة */
+  --surface: #ffffff;        /* خلفية البطاقات */
+  --text: #1f2937;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --shadow: 0 10px 30px rgba(31, 41, 55, .08);
+  --radius: 18px;
+
+  /* ألوان حيوية لكل تصنيف */
+  --cat-culture: #b45309;
+  --cat-sport: #15803d;
+  --cat-music: #be185d;
+  --cat-family: #ea580c;
+  --cat-tech: #4f46e5;
+  --cat-art: #7c3aed;
+}
+
+/* الوضع الليلي: يُفعَّل بإضافة الصنف dark على عنصر body */
+body.dark {
+  --bg: #0f1222;
+  --surface: #191d33;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #2a2f4a;
+  --shadow: 0 10px 30px rgba(0, 0, 0, .35);
+}
+
+/* ---------- أساسيات ---------- */
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Cairo", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.8;
+  transition: background .3s, color .3s;
+}
+a { color: var(--primary); }
+img { max-width: 100%; }
+.text-muted { color: var(--muted) !important; }
+
+/* ---------- الترويسة وشريط التنقل ---------- */
+.site-header {
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+body.dark .site-header { background: rgba(25, 29, 51, .92); }
+.navbar-brand { font-weight: 800; color: var(--text) !important; }
+.navbar-brand img { width: 42px; height: 42px; }
+.navbar-brand small { display: block; font-size: .7rem; font-weight: 600; color: var(--muted); line-height: 1; }
+.site-header .nav-link { color: var(--text); font-weight: 600; border-radius: 10px; padding: .45rem .9rem !important; }
+.site-header .nav-link:hover { background: rgba(79, 70, 229, .08); color: var(--primary); }
+.site-header .nav-link.active { background: var(--primary); color: #fff !important; }
+body.dark .navbar-toggler { filter: invert(1); }
+.theme-toggle {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+}
+
+/* ---------- القسم الافتتاحي (Hero) ---------- */
+.hero {
+  background: url("../img/hero-bg.svg") center / cover no-repeat;
+  color: #fff;
+  padding: 4.5rem 0 6rem;
+  position: relative;
+}
+.hero h1 { font-weight: 900; font-size: clamp(1.9rem, 4.5vw, 3.2rem); }
+.hero p.lead { opacity: .9; }
+.page-hero {                                   /* ترويسة الصفحات الداخلية */
+  background: linear-gradient(135deg, #312e81, var(--primary) 60%, var(--secondary));
+  color: #fff; padding: 3rem 0 3.5rem;
+}
+.page-hero h1 { font-weight: 800; }
+.page-hero .breadcrumb a { color: #fff; opacity: .8; }
+.page-hero .breadcrumb-item.active, .page-hero .breadcrumb-item::before { color: #fff !important; }
+
+/* بطاقة أسماء الفريق في الصفحة الرئيسية */
+.team-strip {
+  background: var(--surface); color: var(--text);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  margin-top: -3.5rem; position: relative; z-index: 2;
+}
+.member-chip {
+  display: flex; align-items: center; gap: .6rem;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: 14px; padding: .5rem .8rem; height: 100%;
+}
+.member-chip .id { font-family: monospace; font-size: .85rem; color: var(--primary); direction: ltr; }
+
+/* ---------- عناوين الأقسام ---------- */
+.section { padding: 3.5rem 0; }
+.section-title { font-weight: 800; display: flex; align-items: center; gap: .6rem; }
+.section-title::before {
+  content: ""; width: 8px; height: 28px; border-radius: 4px;
+  background: linear-gradient(var(--primary), var(--secondary));
+}
+
+/* ---------- السلايدر المخصّص (JavaScript) ---------- */
+.slider { position: relative; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
+.slides { display: flex; transition: transform .6s ease; }
+.slide { min-width: 100%; position: relative; }
+.slide img { width: 100%; height: clamp(240px, 42vw, 440px); object-fit: cover; display: block; }
+.slide-caption {
+  position: absolute; inset: auto 0 0 0; padding: 2rem 1.5rem 1.4rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, .75)); color: #fff;
+}
+.slide-caption h3 { font-weight: 800; margin: .3rem 0; }
+.slider-btn {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 44px; height: 44px; border-radius: 50%; border: 0;
+  background: rgba(255, 255, 255, .85); color: #111; font-size: 1.3rem; z-index: 3;
+}
+.slider-btn.prev { right: 12px; }   /* RTL: السابق على اليمين */
+.slider-btn.next { left: 12px; }
+.slider-dots { position: absolute; bottom: 12px; left: 16px; display: flex; gap: 6px; z-index: 3; }
+.slider-dots button { width: 10px; height: 10px; border-radius: 10px; border: 0; background: rgba(255, 255, 255, .5); transition: width .3s; padding: 0; }
+.slider-dots button.active { width: 26px; background: #fff; }
+
+/* ---------- التصنيفات السريعة ---------- */
+.cat-btn {
+  display: flex; flex-direction: column; align-items: center; gap: .3rem;
+  background: var(--surface); border: 1px solid var(--border); color: var(--text);
+  border-radius: var(--radius); padding: 1.2rem .5rem; text-decoration: none;
+  font-weight: 700; transition: transform .2s, box-shadow .2s; height: 100%;
+}
+.cat-btn i { font-size: 1.8rem; }
+.cat-btn:hover { transform: translateY(-4px); box-shadow: var(--shadow); color: var(--text); }
+
+/* ألوان شارات التصنيف */
+.badge-cat { color: #fff; font-weight: 600; }
+.cat-culture { background: var(--cat-culture) !important; }
+.cat-sport   { background: var(--cat-sport) !important; }
+.cat-music   { background: var(--cat-music) !important; }
+.cat-family  { background: var(--cat-family) !important; }
+.cat-tech    { background: var(--cat-tech) !important; }
+.cat-art     { background: var(--cat-art) !important; }
+.text-culture { color: var(--cat-culture); } .text-sport { color: var(--cat-sport); }
+.text-music { color: var(--cat-music); }     .text-family { color: var(--cat-family); }
+.text-tech { color: var(--cat-tech); }       .text-art { color: var(--cat-art); }
+
+/* ---------- بطاقات الفعاليات ---------- */
+.event-card {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  overflow: hidden; height: 100%;
+  transition: transform .25s, box-shadow .25s;
+}
+.event-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+.event-card .thumb { position: relative; }
+.event-card .thumb img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
+.event-card .thumb .badge-cat { position: absolute; top: 12px; right: 12px; }
+.date-chip {                                   /* شارة التاريخ فوق الصورة */
+  position: absolute; bottom: -22px; left: 16px;
+  background: var(--surface); color: var(--text); border-radius: 14px;
+  box-shadow: var(--shadow); text-align: center; padding: .3rem .8rem; line-height: 1.2;
+}
+.date-chip b { display: block; font-size: 1.3rem; color: var(--primary); }
+.date-chip span { font-size: .75rem; }
+.event-card .card-body { padding-top: 1.6rem; }
+.event-card .card-title { font-weight: 800; font-size: 1.1rem; }
+.event-meta { font-size: .88rem; color: var(--muted); }
+.event-meta i { color: var(--secondary); }
+.status-badge { position: absolute; top: 12px; left: 12px; }
+
+/* ---------- شريط الفلترة ---------- */
+.filter-bar {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.2rem; box-shadow: var(--shadow);
+}
+.form-control, .form-select { border-radius: 12px; background-color: var(--surface); color: var(--text); border-color: var(--border); }
+body.dark .form-control::placeholder { color: #6b7280; }
+.empty-state { padding: 3rem 1rem; text-align: center; color: var(--muted); }
+.empty-state i { font-size: 3rem; }
+
+/* ---------- صفحة التفاصيل ---------- */
+.detail-cover { border-radius: var(--radius); width: 100%; aspect-ratio: 16 / 8; object-fit: cover; box-shadow: var(--shadow); }
+.info-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.4rem; }
+.info-box li { display: flex; gap: .7rem; padding: .55rem 0; border-bottom: 1px dashed var(--border); }
+.info-box li:last-child { border-bottom: 0; }
+.info-box li i { color: var(--primary); font-size: 1.2rem; }
+.gallery img { border-radius: 12px; cursor: zoom-in; aspect-ratio: 3 / 2; object-fit: cover; width: 100%; transition: opacity .2s; }
+.gallery img:hover { opacity: .85; }
+.map-img { border-radius: var(--radius); border: 1px solid var(--border); width: 100%; }
+
+/* ---------- صفحة عن الدليل ---------- */
+.value-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; height: 100%; }
+.value-card .icon { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; font-size: 1.6rem; color: #fff; background: linear-gradient(135deg, var(--primary), var(--secondary)); }
+.team-card { text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1rem; height: 100%; }
+.team-card img { width: 96px; height: 96px; border-radius: 50%; border: 4px solid var(--bg); box-shadow: var(--shadow); }
+.team-card .id { direction: ltr; font-family: monospace; color: var(--primary); font-size: .85rem; }
+.accordion-item, .accordion-button { background: var(--surface); color: var(--text); }
+.accordion-button:not(.collapsed) { background: rgba(79, 70, 229, .1); color: var(--primary); }
+body.dark .accordion-button::after { filter: invert(1); }
+
+/* ---------- صفحة اتصل بنا ---------- */
+.contact-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; box-shadow: var(--shadow); }
+.contact-item { display: flex; gap: 1rem; align-items: center; padding: .8rem 0; }
+.contact-item .icon { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; background: rgba(79, 70, 229, .1); color: var(--primary); font-size: 1.3rem; flex-shrink: 0; }
+
+/* ---------- التذييل ---------- */
+.site-footer { background: #111427; color: #cbd5e1; padding: 3rem 0 1rem; margin-top: 3rem; }
+.site-footer h5 { color: #fff; font-weight: 700; }
+.site-footer a { color: #cbd5e1; text-decoration: none; }
+.site-footer a:hover { color: var(--secondary); }
+.social a {
+  width: 40px; height: 40px; border-radius: 50%; display: inline-grid; place-items: center;
+  background: rgba(255, 255, 255, .08); margin-left: .4rem; transition: background .2s;
+}
+.social a:hover { background: var(--secondary); color: #fff; }
+.footer-bottom { border-top: 1px solid rgba(255, 255, 255, .1); margin-top: 2rem; padding-top: 1rem; font-size: .9rem; }
+
+/* ---------- أزرار عامة + زر العودة للأعلى ---------- */
+.btn { border-radius: 12px; font-weight: 600; }
+.btn-primary { background: var(--primary); border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-dark); border-color: var(--primary-dark); }
+.btn-accent { background: var(--secondary); color: #fff; border: 0; }
+.btn-accent:hover { background: #ea580c; color: #fff; }
+#toTop {
+  position: fixed; bottom: 20px; left: 20px; z-index: 1050;
+  width: 48px; height: 48px; border-radius: 50%; border: 0;
+  background: var(--secondary); color: #fff; font-size: 1.3rem; box-shadow: var(--shadow);
+  opacity: 0; visibility: hidden; transform: translateY(20px); transition: all .3s;
+}
+#toTop.show { opacity: 1; visibility: visible; transform: none; }
+
+/* ظهور تدريجي للعناصر عند التمرير */
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s, transform .6s; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* عناصر Bootstrap داخل الوضع الليلي */
+body.dark .modal-content, body.dark .list-group-item { background: var(--surface); color: var(--text); border-color: var(--border); }
+body.dark .btn-close { filter: invert(1); }
+body.dark .bg-white { background: var(--surface) !important; }
+
+/* ---------- التجاوب (Responsive) ---------- */
+@media (max-width: 991.98px) {
+  .site-header .navbar-collapse { padding: 1rem 0; }
+}
+@media (max-width: 575.98px) {
+  .section { padding: 2.5rem 0; }
+  .hero { padding: 3rem 0 5rem; }
+  .contact-card { padding: 1.3rem; }
+}
+
+/* إظهار رسالة خطأ حقل الرسالة */
+#cMessage.is-invalid + div .invalid-feedback { display: block; }
