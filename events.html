@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="قائمة بكل فعاليات الجامعة الافتراضية السورية مع البحث والفلترة.">
+  <title>كل الفعاليات — دليل فعاليات SVU</title>
+  <link rel="icon" href="assets/img/logo.png" type="image/png">
+  <!-- Bootstrap 5 (نسخة RTL) عبر CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css">
+  <!-- أيقونات Bootstrap -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <!-- خط Cairo من Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- تنسيقاتنا الخاصة -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body data-page="events">
+<!-- سيتم حقن الترويسة هنا تلقائياً -->
+  <div id="header-placeholder"></div>
+
+  <main>
+
+    <!-- ترويسة الصفحة الداخلية + مسار التنقل -->
+    <section class="page-hero">
+      <div class="container">
+        <nav aria-label="مسار التنقل"><ol class="breadcrumb mb-2"><li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+          <li class="breadcrumb-item active" aria-current="page">كل الفعاليات</li></ol>
+        </nav>
+        <h1>كل الفعاليات</h1>
+        <p class="mb-0 opacity-75">ابحث وفلتر فعاليات الجامعة حسب التصنيف والتاريخ والمدينة.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <!-- ===== شريط أدوات البحث والفلترة  ===== -->
+        <form class="filter-bar mb-4" onsubmit="return false" aria-label="فلترة الفعاليات">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-lg-4">
+              <label for="fSearch" class="form-label small fw-bold">بحث</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-search"></i></span>
+                <input type="search" id="fSearch" class="form-control" placeholder="اسم الفعالية أو المكان...">
+              </div>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label for="fCat" class="form-label small fw-bold">التصنيف</label>
+              <select id="fCat" class="form-select"><option value="">الكل</option></select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label for="fCity" class="form-label small fw-bold">الموقع</label>
+              <select id="fCity" class="form-select"><option value="">كل المدن</option></select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label for="fWhen" class="form-label small fw-bold">التاريخ</label>
+              <select id="fWhen" class="form-select">
+                <option value="upcoming" selected>القادمة</option>
+                <option value="today">اليوم</option>
+                <option value="week">خلال أسبوع</option>
+                <option value="month">خلال شهر</option>
+                <option value="past">السابقة</option>
+                <option value="all">الكل</option>
+              </select>
+            </div>
+            <div class="col-6 col-md-3 col-lg-2">
+              <label for="fSort" class="form-label small fw-bold">الترتيب</label>
+              <select id="fSort" class="form-select">
+                <option value="asc">الأقرب أولاً</option>
+                <option value="desc">الأبعد أولاً</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between align-items-center mt-3 small">
+            <span class="text-muted">عدد النتائج: <b id="resultCount">0</b> <span class="ms-2"><i class="bi bi-bookmark-heart"></i> يُحفظ التصنيف المختار لزيارتك القادمة</span></span>
+            <button type="button" id="resetFilters" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-counterclockwise"></i> إعادة ضبط</button>
+          </div>
+        </form>
+
+        <!-- ===== شبكة البطاقات (تُملأ من main.js) ===== -->
+        <div class="row g-4" id="eventsGrid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+  
+<!-- سيتم حقن التذييل هنا تلقائياً -->
+  <div id="footer-placeholder"></div>
+
+  <!-- زر العودة للأعلى -->
+  <button id="toTop" type="button" aria-label="العودة للأعلى"><i class="bi bi-arrow-up"></i></button>
+
+  <!-- Bootstrap JS عبر CDN + ملف JavaScript الخاص بنا -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

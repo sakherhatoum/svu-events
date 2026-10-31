@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="بوابة فعاليات الجامعة الافتراضية السورية: ثقافة، رياضة، موسيقى، تقنية وفنون."
+    />
+    <title>دليل فعاليات الجامعة الافتراضية — الرئيسية</title>
+    <link rel="icon" href="assets/img/logo.png" type="image/png" />
+    <!-- Bootstrap 5 (نسخة RTL) عبر CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+    />
+    <!-- أيقونات Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <!-- خط Cairo من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- تنسيقاتنا الخاصة -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body data-page="home">
+   <!-- سيتم حقن الترويسة هنا تلقائياً -->
+  <div id="header-placeholder"></div>
+
+    <main>
+      <section class="hero">
+        <div class="container">
+          <div class="row align-items-center g-4">
+            <div class="col-lg-7">
+              <span class="badge bg-light text-dark mb-3"
+                ><i class="bi bi-stars text-warning"></i> F25 2026/2027</span
+              >
+              <h1>كل فعاليات الجامعة الافتراضية<br />في مكان واحد</h1>
+              <p class="lead my-3">
+                اكتشف الأمسيات الثقافية، والدوريات الرياضية، والحفلات، وورشات
+                التقنية في مختلف المحافظات — واحجز مكانك بنقرة.
+              </p>
+              <div class="d-flex flex-wrap gap-2">
+                <a href="events.html" class="btn btn-accent btn-lg"
+                  ><i class="bi bi-search"></i> تصفّح الفعاليات</a
+                >
+                <a href="contact.html" class="btn btn-outline-light btn-lg"
+                  >اقترح فعالية</a
+                >
+              </div>
+            </div>
+            <!-- إحصائيات سريعة تُملأ من JavaScript -->
+            <div class="col-lg-5">
+              <div class="row g-3 text-center">
+                <div class="col-4">
+                  <div class="bg-white bg-opacity-10 rounded-4 p-3">
+                    <div class="fs-2 fw-bold" id="statEvents">0</div>
+                    <small>فعالية</small> 
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="bg-white bg-opacity-10 rounded-4 p-3">
+                    <div class="fs-2 fw-bold" id="statUpcoming">0</div>
+                    <small>قادمة</small>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="bg-white bg-opacity-10 rounded-4 p-3">
+                    <div class="fs-2 fw-bold" id="statCities">0</div>
+                    <small>مدن</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== فريق المشروع (الأسماء والأرقام) =====-->
+
+      <section class="container" aria-labelledby="teamTitle">
+        <div class="team-strip p-3 p-md-4">
+          <h2 id="teamTitle" class="h5 fw-bold mb-3">
+            <i class="bi bi-people-fill text-primary"></i> فريق المشروع — مقرر
+            BWP401
+          </h2>
+          <div class="row g-2 row-cols-1 row-cols-sm-2 row-cols-lg-4">
+            <div class="col">
+              <div class="member-chip">
+                <img
+                  src="assets/img/team-1.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="rounded-circle"
+                />
+                <div>
+                  <b>صخر حاطوم</b>
+                  <div class="id">Sakher_414630</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="member-chip">
+                <img
+                  src="assets/img/team-2.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="rounded-circle"
+                />
+                <div>
+                  <b>محمد تيسير حينون</b>
+                  <div class="id">mohamad_teser_243145</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="member-chip">
+                <img
+                  src="assets/img/team-3.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="rounded-circle"
+                />
+                <div>
+                  <b>غنى بلكة</b>
+                  <div class="id">ghina_291662</div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="member-chip">
+                <img
+                  src="assets/img/team-4.svg"
+                  alt=""
+                  width="40"
+                  height="40"
+                  class="rounded-circle"
+                />
+                <div>
+                  <b>يارا معماري</b>
+                  <div class="id">yara_287028</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== فعاليات بارزة هذا الأسبوع (سلايدر JavaScript) ===== -->
+      <section class="section" aria-labelledby="featTitle">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 id="featTitle" class="section-title h3 mb-0">
+              فعاليات بارزة هذا الأسبوع
+            </h2>
+            <a href="events.html" class="btn btn-sm btn-outline-primary"
+              >عرض الكل</a
+            >
+          </div>
+          <div class="slider" id="slider">
+            <div class="slides" id="slides"></div>
+            <button
+              class="slider-btn prev"
+              id="prevSlide"
+              type="button"
+              aria-label="السابق"
+            >
+              <i class="bi bi-chevron-right"></i>
+            </button>
+            <button
+              class="slider-btn next"
+              id="nextSlide"
+              type="button"
+              aria-label="التالي"
+            >
+              <i class="bi bi-chevron-left"></i>
+            </button>
+            <div class="slider-dots" id="sliderDots"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====تصنيفات سريعة ===== -->
+      <section class="section pt-0" aria-labelledby="catTitle">
+        <div class="container">
+          <h2 id="catTitle" class="section-title h3 mb-4">تصفّح حسب التصنيف</h2>
+          <div class="row g-3" id="categories"></div>
+        </div>
+      </section>
+
+      <!-- ===== أحدث الفعاليات (شبكة بطاقات) ===== -->
+      <section class="section pt-0" aria-labelledby="latestTitle">
+        <div class="container">
+          <h2 id="latestTitle" class="section-title h3 mb-4">
+            أحدث الفعاليات القادمة
+          </h2>
+          <div class="row g-4" id="latestEvents"></div>
+          <div class="text-center mt-4">
+            <a href="events.html" class="btn btn-primary px-4"
+              >كل الفعاليات <i class="bi bi-arrow-left"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== دعوة لاقتراح فعالية ===== -->
+      <section class="container reveal">
+        <div
+          class="rounded-4 p-4 p-md-5 text-white"
+          style="background: linear-gradient(135deg, #f97316, #db2777)"
+        >
+          <div class="row align-items-center g-3">
+            <div class="col-md-8">
+              <h2 class="h3 fw-bold">عندك فكرة فعالية؟</h2>
+              <p class="mb-0">
+                نادي، ورشة، مسابقة... أرسل اقتراحك ونساعدك على نشره في الدليل.
+              </p>
+            </div>
+            <div class="col-md-4 text-md-start">
+              <a href="contact.html" class="btn btn-light btn-lg"
+                >أرسل اقتراحك</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+<!-- سيتم حقن التذييل هنا تلقائياً -->
+  <div id="footer-placeholder"></div>
+
+    <!-- زر العودة للأعلى -->
+    <button id="toTop" type="button" aria-label="العودة للأعلى">
+      <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS عبر CDN + ملف JavaScript الخاص بنا -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
